@@ -3,15 +3,92 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Hello I'm Harsh, Welcome to my graphic design portfolio showcasing my creative work, including branding and identity projects, print and digital design, web design, UX design, typography, illustration, motion graphics, logo design, packaging design, digital art, and photography. I am a professional freelance graphic designer with expertise in Adobe Creative Suite. Browse through my portfolio to see my client projects, design process, and award-winning work.">
+  <meta name="keywords" content="Harsh Visuals, Harsh Darji, graphic design portfolio, eSports Graphic Designer, Esports Graphics Showcase, Social Media Graphics, Social Media Posts, creative design showcase, visual communication examples, branding and identity projects, print and digital design work, web design portfolio, UX design samples, typography creations, illustration showcase, motion graphics portfolio, logo design examples, packaging design projects, digital art portfolio, photography gallery, art direction portfolio, responsive design samples, infographics work, social media design projects, vector graphics creations, Adobe Creative Suite expertise, professional graphic designer, design agency projects, freelance designer portfolio, design process examples, client projects showcase, design awards and recognition, color theory expertise, layout design samples, visual storytelling examples, portfolio site for graphic design">
+
+   <meta name="author" content="Harsh Darji">
+    <meta http-equiv="refresh" content="120">
+    <link rel="icon" href="Showcase/logo.png" type="image/png">
     <title>Harsh Visuals</title>
     <link rel="stylesheet" href="portfolio.css">
+  
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://kit.fontawesome.com/1ee8f271b9.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
+<style>
+   html{
+      overflow: hidden;
+   }
+</style>
   </head>
-  <body style="background-color: var(--black-200);">
+ 
+
+
+
+
+  <body style="background-color: var(--black-200);" onload="move()">
+
+   <!--lOADER-->
+   <div id="preloader">
+     <div id="percent">1%</div>
+     <div id="bar">
+         <div id="barconfrm"></div>
+     </div>
+ </div>
+</div>
+
+
+<script>
+   const tll = gsap.timeline({
+       paused: true
+   });
+   tll.to("#percent, #bar",{
+       duration: .2,
+       opacity: 0,
+       zIndex: -1
+   });
+   tll.to("#preloader",{
+       duration: .8,
+       width: "0%"
+   });
+   tll.from(".container",{
+       duration: 1.5,
+       y: "-150%"
+   },"-=.2");
+   tll.to(".container h1",{
+       opacity:1,
+       textShadow: "12px 20px rgba(255,255,255,0.23)",
+       skewY: 10,
+       y: "10%",
+       stagger: {
+           amount: .4
+       }
+   });
+   var width = 1;
+   var bar = document.getElementById("barconfrm");
+   var id;
+   function move(){
+       id = setInterval(frame,10);
+   }
+   function frame(){
+       if(width >= 100){
+           clearInterval(id);
+           tll.play();
+           document.documentElement.style.overflow = "scroll"; // Enable scrolling on <html> element
+       }
+       else{
+           width++;
+           bar.style.width = width + "%";
+           document.getElementById("percent").innerHTML = width + "%";
+       }
+   }
+ </script>
+<!--End Of Loader-->
+
+
 
 
     <div class="cursor-dot" data-cursor-dot></div>
@@ -27,20 +104,20 @@
     <nav class="container navbar navbar-expand-lg bg-transparent">
         <div class="container-fluid">
           <img src="Showcase/logo.png" style="height: 32px; width: 32px; object-fit: cover; margin-top: -0.1rem;">
-          <a class="navbar-brand link" href="#">&nbsp;Harsh Visuals</a>
+          <a class="navbar-brand link" href="index.html">&nbsp;Harsh Visuals</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa-regular fa-bars text-white"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#showcase">Showcase</a>
+                <a class="nav-link active" aria-current="page" href="showcase.html">Showcase</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#aboutme">About</a>
+                <a class="nav-link" href="index.html">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#services">Services</a>
+                <a class="nav-link" href="index.html#showcase">Services</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -359,7 +436,6 @@
       <div class="container p-5">
        <div class="row">
           <div class="col-md-6">
-            <h6 class="text-black mb-3">Contact <b>Me!</b></h6>
             <p class="text-black">&nbsp;&nbsp;<i class="fa-solid fa-envelope"></i> &nbsp;harshvisuals@gmail.com</p>
             <p class="text-black">&nbsp; <a class="text-black" href="https://www.instagram.com/Harsh.visualz/"><i class="fa-brands fa-instagram"></i> </a>
              &nbsp;<a class="text-black" href="https://www.Twitter.com/HarshVisuals/"><i class="fa-brands fa-twitter"></i></a>
