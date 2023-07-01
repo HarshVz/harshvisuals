@@ -7,14 +7,11 @@
   <meta name="keywords" content="Harsh Visuals, Harsh Darji, graphic design portfolio, eSports Graphic Designer, Esports Graphics Showcase, Social Media Graphics, Social Media Posts, creative design showcase, visual communication examples, branding and identity projects, print and digital design work, web design portfolio, UX design samples, typography creations, illustration showcase, motion graphics portfolio, logo design examples, packaging design projects, digital art portfolio, photography gallery, art direction portfolio, responsive design samples, infographics work, social media design projects, vector graphics creations, Adobe Creative Suite expertise, professional graphic designer, design agency projects, freelance designer portfolio, design process examples, client projects showcase, design awards and recognition, color theory expertise, layout design samples, visual storytelling examples, portfolio site for graphic design">
 
    <meta name="author" content="Harsh Darji">
-    <meta http-equiv="refresh" content="120">
-    <link rel="icon" href="Showcase/logo.png" type="image/png">
+    <meta http-equiv="refresh" content="60">
     <title>Harsh Visuals</title>
     <link rel="stylesheet" href="portfolio.css">
-  
+  <link rel="icon" href="Showcase/logo.png" type="image/png">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://kit.fontawesome.com/1ee8f271b9.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -34,18 +31,22 @@ html{
 display: none !important;
 }
 
-
+.abs > .container{
+  position: absolute;
+  z-index: 9999;
+}
 
 .custom-img_slider{
   display:flex;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   align-items: center;
   transform: translate(0%, -50%);
   gap: 10vh;
    user-select: none;
   overflow-x: scroll;
-  
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-img_slider img{
@@ -78,7 +79,7 @@ visibility: hidden;
 }
 
 body {
-  position: relative;
+  position: relative
 }
 
 .custom-img_slider img{
@@ -89,7 +90,7 @@ body {
 }
 
   .phone{
-  visibility: visible;
+  visibility: visible !important;
 display: block !important;
 }
 
@@ -137,81 +138,9 @@ display: block !important;
 .esports-container img{
     width: 30%; height: auto; object-fit: cover; margin-right: 2rem; margin-top: 2rem;
 }
-
-
     </style>
-
-<style>
-html{overflow: hidden;}
-</style>
-
-</head>
-
-
-
-
-
-
-  <body style="background-color: var(--black-200);" onload="move()">
-
-    <!--lOADER-->
-    <div id="preloader">
-      <div id="percent">1%</div>
-      <div id="bar">
-          <div id="barconfrm"></div>
-      </div>
-  </div>
-</div>
-
-
-<script>
-  const tll = gsap.timeline({
-      paused: true
-  });
-  tll.to("#percent, #bar",{
-      duration: .2,
-      opacity: 0,
-      zIndex: -1
-  });
-  tll.to("#preloader",{
-      duration: .8,
-      width: "0%"
-  });
-  tll.from(".container",{
-      duration: 1.5,
-      y: "-150%"
-  },"-=.2");
-  tll.to(".container h1",{
-      opacity:1,
-      textShadow: "12px 20px rgba(255,255,255,0.23)",
-      skewY: 10,
-      y: "10%",
-      stagger: {
-          amount: .4
-      }
-  });
-  var width = 1;
-  var bar = document.getElementById("barconfrm");
-  var id;
-  function move(){
-      id = setInterval(frame,10);
-  }
-  function frame(){
-      if(width >= 100){
-          clearInterval(id);
-          tll.play();
-          document.documentElement.style.overflow = "scroll"; // Enable scrolling on <html> element
-      }
-      else{
-          width++;
-          bar.style.width = width + "%";
-          document.getElementById("percent").innerHTML = width + "%";
-      }
-  }
-</script>
-
-<!--End Of Loader-->
-
+  </head>
+  <body style="background-color: var(--black-200);">
 
 
     <div class="cursor-dot" data-cursor-dot></div>
@@ -227,11 +156,11 @@ html{overflow: hidden;}
     <nav class="container navbar navbar-expand-lg bg-transparent">
         <div class="container-fluid">
           <img src="Showcase/logo.png" style="height: 32px; width: 32px; object-fit: cover; margin-top: -0.1rem;">
-          <a class="navbar-brand link" href="index.html">&nbsp;Harsh Visuals</a>
+          <a class="navbar-brand link" href="#">&nbsp;Harsh Visuals</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa-regular fa-bars text-white"></i>
           </button>
-          <div class="collapse navbar-collapse mt-2" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
                <a class="nav-link" href="https://www.linkedin.com/in/harshdarji26"><i class="fa-brands fa-linkedin"></i></a>
@@ -239,7 +168,7 @@ html{overflow: hidden;}
               
               
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="https://www.behance.net/harshvisuals">Works</a>
+                <a class="nav-link active" aria-current="page" href="#showcase">Works</a>
               </li>
               
               
@@ -285,21 +214,23 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
 
     <div class="container">
         <div class="row d-flex justify-content-center align-items-center">
+          
             <div class="col-md-6 m-auto p-5">
                 <h6 class="head">Journey of Creative Exploration.</h6>
                 <p>From Designing Dreams to Digital Domination:<br> Harsh's Creative Exploration !</p>
-                <hr class="break phone">
+                
             </div>
 
 
             <div class="col-md-6 m-auto p-5">
+              <hr class="break phone">
                 <h3>2020 - Learning Graphics Designing! </h3>
                 <p>Harsh Was Roaming Through Internet And Found Some Apps For Editing, Then He Got Interest In It and Later-On He Started Learning Graphics Designing.</p>
 
                <b><hr class="break"></b>
 
                 <h3>2021 - Joined Future Station.</h3>
-                <p>As Harsh was learning Graphics Designing and suddenly he got the opportunity to work with An Organization known as FutureStation. At That Time FutureStation was also at Initial Stage after this He Joined FutureStation As A Lead GraphicS Designer.</p>
+                <p>As Harsh was learning Graphics Designing and suddenly he got the opportunity to work with An ization known as FutureStation. At That Time FutureStation was also at Initial Stage after this He Joined FutureStation As A Lead GraphicS Designer.</p>
 
                 <hr class="break">
 
@@ -352,13 +283,14 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
 -->
 
 
-<div class="container p-5" style="background-color: var(--black-200); margin-top: 0rem;">
+<div class="container p-5 abs" style="background-color: var(--black-200); margin-top: 0rem;">
 <div class="row">
   <div class="col-md-6"><p></p></div>
   <div class="col-md-6 "><h6 style="text-align: right;">Works <br>Showcase!</h6>
- <a href="showcase.html"> <p style="text-align: right;">Checkout More Infromation &nbsp; <i class="fa-sharp fa-solid fa-arrow-down-right"></i></p></a>
+ <a href="#"> <p style="text-align: right;">Checkout More Infromation &nbsp; <i class="fa-sharp fa-solid fa-arrow-down-right"></i></p></a>
   </div>
 </div>
+<div class="container">
   <div class="custom-img_slider" id="customslider"  data-mouse-down-at="0" data-prev-percentage="0">
     <div class="item-img">
         <img src="Showcase/Thumbnail-1.png" class="card-img-top" alt="..." draggable="false">
@@ -416,7 +348,7 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
 </div>
 </div>
 </div>
-
+</div>
 
 
 <div class="container m-5 p-5" style="background-color: var(--black-200);">
@@ -437,7 +369,7 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
     </div>
     
      <div class="col-md-6 p-5">
-        <h3><a href="showcase.html">Graphic Designing</a> <hr> <a href="portfolio.html">Web Designing</a> <hr> <a href="#">Codding</a> <hr> <a href="#">Communication</a></h3>
+        <h3><a href="#">Graphic Designing</a> <hr> <a href="#">Web Designing</a> <hr> <a href="#">Codding</a> <hr> <a href="#">Communication</a></h3>
     </div>
   </div>
 </div>
@@ -447,8 +379,8 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
 
   <div class="marquee mt-4 mb-1" >
       <div>
-        <span>FROM DESIGNING DREAMS TO DIGITAL DOMINATION: HARSH'S INSPIRING JOURNEY OF CREATIVE EXPLORATION AND PROFESSIONAL GROWTH! </span>
-        <span style="color: var(--primary-color) !important;">FROM DESIGNING DREAMS TO DIGITAL DOMINATION: HARSH'S INSPIRING JOURNEY OF CREATIVE EXPLORATION AND PROFESSIONAL GROWTH ! </span>
+        <span style="color: var(--primary-color) !important;">FROM DESIGNING DREAMS TO DIGITAL DOMINATION: HARSH'S INSPIRING JOURNEY OF CREATIVE EXPLORATION AND PROFESSIONAL GROWTH! </span>
+        <span>FROM DESIGNING DREAMS TO DIGITAL DOMINATION: HARSH'S INSPIRING JOURNEY OF CREATIVE EXPLORATION AND PROFESSIONAL GROWTH ! </span>
   </div>
     </div>
 </div>
@@ -516,7 +448,8 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
   <div class="container p-5">
    <div class="row">
       <div class="col-md-6">
-        <p class="text-black">&nbsp;&nbsp;<i class="fa-solid fa-envelope"></i> &nbsp;harshvisualz@gmail.com</p>
+        <h6 class="text-black mb-3">Contact <b>Me!</b></h6>
+        <p class="text-black">&nbsp;&nbsp;<i class="fa-solid fa-envelope"></i> &nbsp;harshvisuals@gmail.com</p>
         <p class="text-black">&nbsp; <a class="text-black" href="https://www.instagram.com/Harsh.visualz/"><i class="fa-brands fa-instagram"></i> </a>
          &nbsp;<a class="text-black" href="https://www.Twitter.com/HarshVisuals/"><i class="fa-brands fa-twitter"></i></a>
          &nbsp;<a class="text-black" href="https://www.behance.com/HarshVisuals/"><i class="fa-brands fa-behance"></i></a>
