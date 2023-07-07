@@ -180,6 +180,11 @@ html,body{
        margin-top: -3rem;
  }
 
+ .pad3{
+       margin-top: 0rem;
+ }
+
+
 
 
 @media (max-width: 768px) {
@@ -374,6 +379,11 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
 
 
 
+<div class="row">
+  <h6 class="head" style="font-size: 10rem !important;" data-scroll data-scroll-direction="horizontal" data-scroll-speed="12">HARSHVISUALS'PORTFOLIO</h6>
+</div>
+
+
 
 <!--====== Tiny Slider Css ======-->
    <link rel="stylesheet" href="https://cdn.ayroui.com/1.0/css/tiny-slider.css" />
@@ -387,7 +397,7 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
             <h3> Portfolio! </h3>
         </div>
         <div class="col-md-6">
-          <p class="port-text" data-scroll data-scroll-direction="horizontal" data-scroll-speed="12"> May'23 </p>
+          <p class="port-text" data-scroll > May'23 </p>
         </div>
           <hr class="break mb-0 mt-2">
         </div>
@@ -639,7 +649,7 @@ Barba.Pjax.getTransition = function() {
 const scroller = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
-    multiplier: 1
+    multiplier: 1.8
 })
 
 
