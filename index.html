@@ -12,17 +12,58 @@
     <title>Harsh Visuals</title>
     <link rel="stylesheet" href="portfolio.css">
   
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css
+" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/1ee8f271b9.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <style>
+   
+    <link href="
+    https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css
+    " rel="stylesheet">
+   
+   
+   <style>
+
+
+
+ 
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .card{
+      height: auto;
+      width: 20em;
+    }
+    
+    .card:hover img{
+      transform: scale(0.9);
+      transition: 0.3s;
+    }
+
+.card img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s;
+    }
 
 html{
   overflow-x: hidden;
   cursor: none;
+}
+
+.pad3{
+  margin-top: -4rem;
 }
 
 .head{
@@ -34,6 +75,41 @@ html{
 display: none !important;
 }
 
+h4{
+  font-size:1.5em;
+  color:white;
+  font-family:var(--plus-jakarta-sans);
+  text-align: center;
+}
+
+.visible_phone{
+  visibility: hidden;
+  display:none;
+}
+
+.port-text{
+  text-align: right;
+}
+
+.aright{
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .port-text{
+    text-align: left;
+  }
+  
+  .bottom_phone-gap{
+    margin-bottom: 2.5rem;
+  }
+  
+  .visible_phone{
+      visibility: visible !important;
+display: block !important;
+  }
+  
+}
 
 
 .custom-img_slider{
@@ -96,6 +172,16 @@ html,body{
 }
 
 
+.pad{
+    padding: 2.6rem;
+}
+
+.pad2{
+       margin-top: -3rem;
+ }
+
+
+
 @media (max-width: 768px) {
 
 
@@ -103,6 +189,14 @@ html,body{
   overflow-x: hidden;
   cursor: visible;
 }
+
+.pad{
+        padding: 3rem;
+      }
+
+      .pad2{
+        margin-top: -3.7rem;
+      }
 
 .cursor-dot, .cursor-outline{
   height: 0;
@@ -130,6 +224,9 @@ display: block !important;
   .head{
     font-size: 40px !important;
   }
+  .form-container{
+    padding:0;
+  }
 }
 
 
@@ -139,52 +236,21 @@ display: block !important;
   }
 }
 
-
-
-.thumb-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.thumb-container img{
-    width: 30%; height: auto; object-fit: cover;
-}
-
-
-.post-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.post-container img{
-    width: 30%; height: auto; object-fit: cover; margin-right: 2rem; margin-top: 2rem;
-}
-
-
-.esports-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.esports-container img{
-    width: 30%; height: auto; object-fit: cover; margin-right: 2rem; margin-top: 2rem;
-}
-
-
     </style>
+    
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 html{overflow: hidden;}
+
+
+
 </style>
+
+
 
 </head>
 
@@ -195,78 +261,18 @@ html{overflow: hidden;}
 
   <body style="background-color: var(--black-200);" onload="move()">
 
-    <!--lOADER-->
-    <div id="preloader">
-      <div id="percent">Please Wait For A While!</div>
-      <div id="bar">
-          <div id="barconfrm"></div>
-      </div>
-  </div>
-</div>
-
-
-<script>
-  const tll = gsap.timeline({
-      paused: true
-  });
-  tll.to("#percent, #bar",{
-      duration: .2,
-      opacity: 0,
-      zIndex: -1
-  });
-  tll.to("#preloader",{
-      duration: .8,
-      width: "0%"
-  });
-  tll.from(".container",{
-      duration: 1.5,
-      y: "-150%"
-  },"-=.2");
-  tll.to(".container h1",{
-      opacity:1,
-      textShadow: "12px 20px rgba(255,255,255,0.23)",
-      skewY: 10,
-      y: "10%",
-      stagger: {
-          amount: .4
-      }
-  });
-  var width = 1;
-  var bar = document.getElementById("barconfrm");
-  var id;
-  function move(){
-      id = setInterval(frame,10);
-  }
-  function frame(){
-      if(width >= 100){
-          clearInterval(id);
-          tll.play();
-          document.documentElement.style.overflow = "scroll"; // Enable scrolling on <html> element
-      }
-      else{
-          width++;
-          bar.style.width = width + "%";
-          document.getElementById("percent").innerHTML = width + "%";
-      }
-  }
-</script>
-
-<!--End Of Loader-->
-
-
-
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
 
-    <section class="section-container">
+    <section class="section-container" data-scroll-container>
 
 
-        <section class="snap" id="nav">
+        
 
 
 <header>
-    <nav class="container navbar navbar-expand-lg bg-transparent">
-        <div class="container-fluid">
+    <nav class="container navbar navbar-expand-lg bg-transparent" data-scroll-section>
+        <div class="container-fluid" >
           <img src="Showcase/logo.png" style="height: 32px; width: 32px; object-fit: cover; margin-top: -0.1rem;">
           <a class="navbar-brand link" href="index.html">&nbsp;Harsh Visuals</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -291,18 +297,18 @@ html{overflow: hidden;}
 </header>
 
 
-<section class="p1" data-aos="fade-up">
+<section class="top-section"  data-scroll-section>
 
 
     <div class="container">
         <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-md-6 m-auto p-5">
+            <div class="col-md-6 m-auto p-5" data-scroll data-scroll-speed="3">
                 <img src="Showcase/3d-3.png" class="card-img-top rounded-5" alt="..." style="width: 100%; height: auto; object-fit: cover;" >
 
             </div>
-            <div class="col-md-6 m-auto p-5 d-flex justify-content-between align-content-center flex-column">
-                <h6>I'm Harsh. </h6> 
-                <p class="m-0 p-0"><br>Harsh is a 18 year old living in Ahmedabad, Gujarat, <b>a Self-Taught Graphics Designer</b>, Creating Social Media Posts, Esports Broadcast Assets, Stream Elements And Youtube Thumbnails.
+            <div class="col-md-6 m-auto p-5 d-flex justify-content-between align-content-center flex-column" data-scroll data-scroll-speed="2">
+                <h6 data-scroll>I'm Harsh. </h6> 
+                <p class="m-0 p-0" data-scroll><br>Harsh is a 18 year old living in Ahmedabad, Gujarat, <b>a Self-Taught Graphics Designer</b>, Creating Social Media Posts, Esports Broadcast Assets, Stream Elements And Youtube Thumbnails.
 . <br><br> 
 He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineering & Interested In Learning Web Development in HTML, CSS & JS With Strong Passion in Graphics Design. 
 </p>
@@ -316,17 +322,21 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
     </div>
     
 
+    <hr class="break">
 
     <div class="container">
         <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-md-6 m-auto p-5">
+            <div class="col-md-6 m-auto p-5" data-scroll data-scroll-speed="4">
                 <h6 class="head">Journey of Creative Exploration.</h6>
                 <p>From Designing Dreams to Digital Domination:<br> Harsh's Creative Exploration !</p>
-                <hr class="break phone">
+                
             </div>
+            
+              <hr class="break visible_phone">
 
-
-            <div class="col-md-6 m-auto p-5">
+            <div class="col-md-6 m-auto p-5" data-scroll data-scroll-speed="3">
+              
+                            
                 <h3>2020 - Learning Graphics Designing! </h3>
                 <p>Harsh Was Roaming Through Internet And Found Some Apps For Editing, Then He Got Interest In It and Later-On He Started Learning Graphics Designing.</p>
 
@@ -345,124 +355,172 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
 
                 <h3>2023 - Learning Web Development.</h3>
                 <p>Currently Harsh is a Freelance Graphic Designer and also Learning Web Development. As a graphics designer he has worked with many infamous content-creators.</p>
-
+                
             </div>
         </div>
     </div>
     
 
-
-<div class="container p-5" style="background-color: var(--black-200); margin-top: 0rem;">
-<div class="row">
-  <div class="col-md-6"><p></p></div>
-  <div class="col-md-6 "><h6 style="text-align: right;">Works <br>Showcase!</h6>
- <a href="showcase.html"> <p style="text-align: right;">Checkout More Works! &nbsp; <i class="fa-sharp fa-solid fa-arrow-down-right"></i></p></a>
-  </div>
-</div>
-  <div class="custom-img_slider" id="customslider"  data-mouse-down-at="0" data-prev-percentage="0">
-    <div class="item-img">
-        <img src="Showcase/Thumbnail-1.png" class="card-img-top" alt="..." draggable="false">
-    </div>
-    <div class="item-img">
-        <img src="Showcase/Thumbnail-2.png" class="card-img-top" alt="..." draggable="false">
-    </div>
-    <div class="item-img">
-        <img src="Showcase/Thumbnail-3.png" class="card-img-top" alt="..." draggable="false">
-    </div>
-    <div class="item-img">
-        <img src="Showcase/Thumbnail-4.png" class="card-img-top" alt="..." draggable="false">
-    </div>
-
-    <div class="item-img">
-      <img src="Showcase/Showcase_1.png" class="card-img-top" alt="..." draggable="false">
-  </div>
-  
-  <div class="item-img">
-        <img src="Showcase/Thumbnail-5.jpg" class="card-img-top" alt="..." draggable="false">
-    </div>
-  
-    <div class="item-img">
-        <img src="Showcase/Thumbnail-6.png" class="card-img-top" alt="..." draggable="false">
-    </div>
-  
-  
-   <div class="item-img">
-        <img src="Showcase/Thumbnail-7.png" class="card-img-top" alt="..." draggable="false">
-    </div>
-    <div class="item-img">
-        <img src="Showcase/Thumbnail-8.png" class="card-img-top" alt="..." draggable="false">
-    </div>
-    <div class="item-img">
-        <img src="Showcase/Thumbnail-9.jpg" class="card-img-top" alt="..." draggable="false">
-    </div>
-    <div class="item-img">
-        <img src="Showcase/Thumbnail-10.png" class="card-img-top" alt="..." draggable="false">
-    </div>
-
-    <div class="item-img">
-      <img src="Showcase/Showcase_2.png" class="card-img-top" alt="..." draggable="false">
-  </div>
-  <div class="item-img">
-    <img src="Showcase/Showcase_3.png" class="card-img-top" alt="..." draggable="false">
-</div>
-<div class="item-img">
-  <img src="Showcase/Showcase_4.jpeg" class="card-img-top" alt="..." draggable="false">
-</div>
-<div class="item-img">
-  <img src="Showcase/Showcase_5.jpeg" class="card-img-top" alt="..." draggable="false">
-</div>
-<div class="item-img">
-  <img src="Showcase/Webpages/page-1.png" class="card-img-top" alt="..." draggable="false">
-</div>
-</div>
-</div>
-
-
-
-<div class="container m-5 p-5" style="background-color: var(--black-200);">
-</div>
-
+    
+   <hr class="break">
 
 </section>
 
 
 
 
-<section class="p4" data-aos="fade-up">
 
-<div class="container">
-  <div class="row d-flex justify-content-center align-items-center">
-    <div class="col-md-6 p-5">
-        <h6 class="w-50">Acquired <b>Skills!</b> <i class="fa-sharp fa-regular fa-arrow-right"></i></h6>
+<section class="middle-section pad3 pt-3" data-scroll-section>
+
+
+
+
+<!--====== Tiny Slider Css ======-->
+   <link rel="stylesheet" href="https://cdn.ayroui.com/1.0/css/tiny-slider.css" />
+
+ <!--====== SLIDER THREE PART START ======-->
+
+  <section class="slider-three">
+    <div class="container pad" data-scroll data-scroll-speed="1">
+      <div class="row p-2 mb-3 mb-3">
+        <div class="col-md-6">
+            <h3> Portfolio! </h3>
+        </div>
+        <div class="col-md-6">
+          <p class="port-text" data-scroll data-scroll-direction="horizontal" data-scroll-speed="12"> May'23 </p>
+        </div>
+          <hr class="break mb-0 mt-2">
+        </div>
+      <!-- row -->
+
+      <div class="slider-items-wrapper" data-scroll data-scroll-speed="2">
+        <div class="row slider-items-active">
+          <div class="col-lg-4">
+            <div class="single-items-one">
+              <img src="Showcase/thumbs.webp" alt="Image" />
+            </div>
+            <!-- single-items-one -->
+          </div>
+          <div class="col-lg-4">
+            <div class="single-items-one">
+              <img src="Showcase/posts.webp" alt="Image" />
+            </div>
+            <!-- single-items-one -->
+          </div>
+          <div class="col-lg-4">
+            <div class="single-items-one">
+              <img src="Showcase/headers.webp" alt="Image" />
+            </div>
+            <!-- single-items-one -->
+          </div>
+          <div class="col-lg-4">
+            <div class="single-items-one">
+              <img src="Showcase/webs.webp" alt="Image" />
+            </div>
+            <!-- single-items-one -->
+          </div>
+        </div>
+        <!-- row -->
+      </div>
     </div>
-    
-     <div class="col-md-6 p-5">
-        <h3><a href="#">Graphic Designing</a> <hr> <a href="#">Web Designing</a> <hr> <a href="#">Codding</a> <hr> <a href="#">Communication</a></h3>
-    </div>
+    <!-- container -->
+  </section>
+
+  <!--====== SLIDER THREE PART ENDS ======-->
+
+  <!--====== Tiny Slider js ======-->
+  <script src="https://cdn.ayroui.com/1.0/js/tiny-slider.js"></script>
+
+<script>
+      //======== tiny slider for slider-items-active
+      tns({
+         autoplay: true,
+         autoplayButtonOutput: false,
+         mouseDrag: true,
+         gutter: 0,
+         container: ".slider-items-active",
+         center: false,
+         nav: false,
+         navPosition: "bottom",
+         controls: false,
+         speed: 400,
+         controlsText: [
+            '<i class="lni lni-arrow-left-circle"></i>',
+            '<i class="fa-sharp fa-solid fa-arrow-right"></i>',
+         ],
+         responsive: {
+            0: {
+               items: 1,
+            },
+
+            768: {
+               items: 2,
+            },
+            992: {
+               items: 3,
+            },
+         },
+      });
+   </script>
+
+
+
+
+
+<div class="container pad  pad3 pt-0" data-scroll data-scroll-speed="3">
+
+   <hr class="break">
+  <div class="row mb-1">
+    <div class="col">
+      <h3 style="font-weight: 300; "><a href="#" class="text-white hov" >Graphic Designing</a> </h3>
   </div>
+  <div class="col">
+    <h3 style="font-weight: 300; text-align: right;"><a href="#" class="pe-5" style="color: var(--black-500);" > <i class="fa-sharp fa-regular fa-arrow-right"></i></a> </h3>
+</div>
+</div>
+  <hr class="break">
+
+  <div class="row mb-1">
+    <div class="col">
+      <h3 style="font-weight: 300; "><a href="#" class="text-white hov" >Web Development</a> </h3>
+  </div>
+  <div class="col">
+    <h3 style="font-weight: 300; text-align: right; "><a href="#" class="pe-5" style="color: var(--black-500);"> <i class="fa-sharp fa-regular fa-arrow-right"></i></a> </h3>
+</div>
+</div>
+
+  <hr class="break">
+  
+  <div class="row mb-1">
+    <div class="col">
+      <h3 style="font-weight: 300; "><a href="#" class="text-white hov">Codding</a> </h3>
+  </div>
+  <div class="col">
+    <h3 style="font-weight: 300; text-align: right;"><a href="#" class="pe-5" style="color: var(--black-500);"> <i class="fa-sharp fa-regular fa-arrow-right"></i></a> </h3>
+</div>
+</div>
+  <hr class="break">
+
 </div>
 
 
-<div class=" container mt-3">
-
-  <div class="marquee mt-4 mb-1" >
-      <div>
-        <span  style="color: var(--primary-color) !important;">FROM DESIGNING DREAMS TO DIGITAL DOMINATION: HARSH'S INSPIRING JOURNEY OF CREATIVE EXPLORATION AND PROFESSIONAL GROWTH! </span>
-        <span>FROM DESIGNING DREAMS TO DIGITAL DOMINATION: HARSH'S INSPIRING JOURNEY OF CREATIVE EXPLORATION AND PROFESSIONAL GROWTH ! </span>
-  </div>
-    </div>
-</div>
 
 
+</section>
 
-<section class="container snap p-5" id="contact" data-aos="fade-up">
+
+<section class="bottom-section"  data-scroll-section>
+
+
+<div class="container snap p-5 pt-0 pad3" id="contact" data-scroll>
   <div class="row">
-      <div class="col-md-6 m-auto">
-          <h6>Get in <b>Touch</b> <i class="fa-sharp fa-solid fa-arrow-up-right"></i></h6>
+      <div class="col-md-6 m-auto" data-scroll data-scroll-speed="4">
+          <h6 class="head">Get in <b>Touch</b></h6>
+      <hr class="break visible_phone">
           <p>Find out the answer to any questions you may have and develop a viable solution for your requirements.</p>
       </div>
 
-      <div class="col-md-6 m-auto">
+      <div class="col-md-6 m-auto" data-scroll data-scroll-speed="3">
           <div class="form-container">
               <form class="form"
               action="https://formspree.io/f/xoqoajjn"
@@ -483,17 +541,9 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
           </div>
       </div>
   </div>
-</section>
-</section>
+</div>
 
-
-
-
-<!-- Footer -->
-
-
-  <!-- Site footer -->
-  <footer class="site-footer mt-5" style="background-color: var(--primary-color);">
+<footer class="site-footer mt-5" style="background-color: var(--primary-color);" data-scroll>
   <div class="container p-5">
    <div class="row">
       <div class="col-md-6">
@@ -512,11 +562,17 @@ He is Currently <b>Student</b> At R.C Technical Institute in Computer Engineerin
   </div>
 </footer>
 
+</section>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-   AOS.init();
- </script>
+
+
+</section>
+
+
+
+<script src="
+https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js
+"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script>
 <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script>
@@ -580,80 +636,17 @@ Barba.Pjax.getTransition = function() {
   return RefreshTransition;
 };
 
+const scroller = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    multiplier: 1
+})
 
-//SCROLLBAR
-
-
-const track = document.getElementById("customslider");
-
-const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
-
-const handleOnUp = () => {
-  track.dataset.mouseDownAt = "0";  
-  track.dataset.prevPercentage = track.dataset.percentage;
-}
-
-const handleOnMove = e => {
-  if(track.dataset.mouseDownAt === "0") return;
-  
-  const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth / 2;
-  
-  const percentage = (mouseDelta / maxDelta) * -100,
-        nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-  
-  track.dataset.percentage = nextPercentage;
-  
-  track.animate({
-    transform: `translate(${nextPercentage}%, -50%)`
-  }, { duration: 1200, fill: "forwards" });
-  
-  for(const image of track.getElementsByClassName("image")) {
-    image.animate({
-      objectPosition: `${100 + nextPercentage}% center`
-    }, { duration: 1200, fill: "forwards" });
-  }
-}
-
-/* -- Had to add extra lines for touch events -- */
-
-window.onmousedown = e => handleOnDown(e);
-
-window.ontouchstart = e => handleOnDown(e.touches[0]);
-
-window.onmouseup = e => handleOnUp(e);
-
-window.ontouchend = e => handleOnUp(e.touches[0]);
-
-window.onmousemove = e => handleOnMove(e);
-
-window.ontouchmove = e => handleOnMove(e.touches[0]);
 
 
 
     </script>
-    
-    
-    
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    appId: "1:56480548025:web:0e1b4fcbe7b405f488c768",
-    measurementId: "G-DV4J8P9F4D"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
-    
     <script src="https://kit.fontawesome.com/1ee8f271b9.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
